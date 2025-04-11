@@ -1,180 +1,84 @@
-@import url(https://fonts.bunny.net/css?family=basic:400);
-
-@import "tailwindcss";
-
-/* TODO forgot some focused states smh */
-:root {
-  --color-base-100: hsl(0, 0%, 22%);
-  --color-base-200: hsl(0, 0%, 18%);
-  --color-base-300: hsl(0, 0%, 14%);
-
-  --color-neutral: hsl(0, 0%, 8%);
-  --color-neutral-content: hsl(0, 0%, 100%);
-  --color-primary: hsl(217, 78%, 40%);
-  --color-primary-content: hsl(0, 0%, 100%);
-  --color-secondary: hsl(274, 78%, 40%);
-  --color-secondary-content: hsl(0, 0%, 100%);
-  --color-accent: hsl(160, 80%, 46%);
-  --color-accent-content: color-mix(in hsl, var(--color-accent), black 53%);
-  --color-info: hsl(180, 77%, 47%);
-  --color-info-content: color-mix(in hsl, var(--color-info), black 50%);
-  --color-success: hsl(129, 71%, 56%);
-  --color-success-content: color-mix(in hsl, var(--color-success), black 54%);
-  --color-warning: hsl(35, 100%, 58%);
-  --color-warning-content: color-mix(in hsl, var(--color-warning), black 60%);
-  --color-error: hsl(355, 70%, 47%);
-  --color-error-content: color-mix(in hsl, var(--color-warning), black 75%);
-
-  --btn-scale-down-onclick: 0.98;
-}
-
-body {
-  background-color: var(--color-base-300);
-  font-family: "Basic", sans-serif;
-}
-
-.bg-base-100 {
-  background-color: var(--color-base-100);
-}
-
-.bg-base-200 {
-  background-color: var(--color-base-200);
-}
-
-.bg-base-300 {
-  background-color: var(--color-base-300);
-}
-
-.color-neutral {
-  color: var(--color-neutral);
-}
-
-.color-neutral-content {
-  color: var(--color-neutral-content);
-}
-
-.color-primary {
-  color: var(--color-primary);
-}
-
-.color-primary-content {
-  color: var(--color-primary-content);
-}
-
-.color-secondary {
-  color: var(--color-secondary);
-}
-
-.color-secondary-content {
-  color: var(--color-secondary-content);
-}
-
-.color-accent {
-  color: var(--color-accent);
-}
-
-.color-accent-content {
-  color: var(--color-accent-content);
-}
-
-.color-info {
-  color: var(--color-info);
-}
-
-.color-info-content {
-  color: var(--color-info-content);
-}
-
-.color-success {
-  color: var(--color-success);
-}
-
-.color-success-content {
-  color: var(--color-success-content);
-}
-
-.color-warning {
-  color: var(--color-warning);
-}
-
-.color-warning-content {
-  color: var(--color-warning-content);
-}
-
-.color-error {
-  color: var(--color-error);
-}
-
-.color-error-content {
-  color: var(--color-error-content);
-}
-
-.btn {
-  --btn-border-color: black;
-
+:where(.btn) {
   /* Styling */
-  @apply px-6 py-2 border-3 border-transparent rounded-lg h-12 flex items-center justify-center gap-2
-    text-lg text-white shadow-md shadow-black/40 cursor-pointer overflow-clip;
+  @apply px-[1em] py-[0.4em] border-3 border-transparent rounded-lg flex items-center justify-center gap-2
+     text-white shadow-md shadow-black/40 cursor-pointer overflow-clip;
 
   /* Layout */
   @apply relative;
 
+  /* Transition properties */
+  transition: border-color var(--transition-speed-fast) ease-out,
+    scale 0.05s ease-out, box-shadow 0.1s ease-out,
+    background-color var(--transition-speed-fast) ease-out;
+  transform-origin: center center;
+
+  /* Other */
+  outline-offset: 2px;
+
+  /* This is the glow on the top left */
   &::before {
     content: "";
+    transition: border-color var(--transition-speed-fast) ease-out;
     @apply absolute top-1 left-1 h-1/3 w-1/4 rounded-tl-xl border-t-3 border-l-3 max-h-6 max-w-12;
   }
 
-  transition: border-color 0.25s ease-out, scale 0.1s ease-out,
-    box-shadow 0.1s ease-out, background-color 0.25s ease-out;
-  transform-origin: center center;
-
+  /* Removing default focus outline */
   &:focus-visible {
     outline: 0;
   }
 
-  &:active {
+  /* Click effect */
+  /* Excludes the kbd class */
+  &:active:not(.kbd) {
     scale: var(--btn-scale-down-onclick);
     @apply shadow-none;
   }
 
-  &.btn-square {
-    @apply aspect-square p-0 w-12 h-12;
-  }
+  /* Disabled state */
+  &[disabled] {
+    @apply opacity-60 cursor-not-allowed shadow-none;
 
-  &.btn-circle {
-    @apply aspect-square p-0 w-12 h-12 rounded-full;
-    &::before {
-      @apply absolute top-1.5 left-1.5 h-1/4 w-1/4 rounded-tl-xl border-t-3 border-l-3 max-h-6 max-w-12;
-    }
-  }
-
-  &.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    /* Removing the glow on the top left */
     &::before {
       content: "";
       @apply border-0;
     }
+
+    /* Click transition removal */
     &:active {
       scale: 1;
-      @apply shadow-md;
     }
   }
 }
 
-.btn-neutral {
+:where(.btn-square) {
+  @apply aspect-square p-0 w-12 h-12;
+}
+
+:where(.btn-circle) {
+  @apply aspect-square p-0 w-12 h-12 rounded-full;
+
+  &::before {
+    @apply absolute top-1.5 left-1.5 h-1/4 w-1/4;
+  }
+}
+
+:where(.btn-neutral) {
   border-color: color-mix(in hsl, var(--color-neutral), black 15%);
   background-color: var(--color-neutral);
   color: var(--color-neutral-content);
 
+  /* Glow on the top left of the button */
   &::before {
     border-color: hsla(0, 0%, 100%, 0.2);
   }
 
+  /* On focus */
   &:focus-visible {
-    border-color: color-mix(in hsl, var(--color-neutral), white 20%);
+    outline: 2px solid var(--color-neutral);
   }
 
+  /* Settings for the outline version */
   &.btn-outline {
     background-color: color-mix(in hsl, var(--color-neutral), transparent 85%);
     border-color: var(--color-neutral);
@@ -193,7 +97,7 @@ body {
   }
 }
 
-.btn-primary {
+:where(.btn-primary) {
   border-color: color-mix(in hsl, var(--color-primary), black 15%);
   background-color: var(--color-primary);
   color: var(--color-primary-content);
@@ -203,7 +107,7 @@ body {
   }
 
   &:focus-visible {
-    border-color: color-mix(in hsl, var(--color-primary), white 20%);
+    outline: 2px solid var(--color-primary);
   }
 
   &.btn-outline {
@@ -222,7 +126,7 @@ body {
   }
 }
 
-.btn-secondary {
+:where(.btn-secondary) {
   border-color: color-mix(in hsl, var(--color-secondary), black 15%);
   background-color: var(--color-secondary);
   color: var(--color-secondary-content);
@@ -232,7 +136,7 @@ body {
   }
 
   &:focus-visible {
-    border-color: color-mix(in hsl, var(--color-secondary), white 20%);
+    outline: 2px solid var(--color-secondary);
   }
 
   &.btn-outline {
@@ -255,7 +159,7 @@ body {
   }
 }
 
-.btn-accent {
+:where(.btn-accent) {
   border-color: color-mix(in hsl, var(--color-accent), black 15%);
   background-color: var(--color-accent);
   color: var(--color-accent-content);
@@ -265,7 +169,7 @@ body {
   }
 
   &:focus-visible {
-    border-color: color-mix(in hsl, var(--color-accent), black 40%);
+    outline: 2px solid var(--color-accent);
   }
 
   &.btn-outline {
@@ -286,7 +190,7 @@ body {
   }
 }
 
-.btn-info {
+:where(.btn-info) {
   border-color: color-mix(in hsl, var(--color-info), black 15%);
   background-color: var(--color-info);
   color: var(--color-info-content);
@@ -296,7 +200,7 @@ body {
   }
 
   &:focus-visible {
-    border-color: color-mix(in hsl, var(--color-info), black 40%);
+    outline: 2px solid var(--color-info);
   }
 
   &.btn-outline {
@@ -307,12 +211,17 @@ body {
       border-color: color-mix(in hsl, var(--color-info), transparent 50%);
     }
     &:focus-visible {
-      border-color: color-mix(in hsl, var(--color-info), black 40%);
+      background: var(--color-info);
+      color: var(--color-info-content);
+
+      &::before {
+        border-color: hsla(0, 0%, 100%, 0.5);
+      }
     }
   }
 }
 
-.btn-success {
+:where(.btn-success) {
   border-color: color-mix(in hsl, var(--color-success), black 15%);
   background-color: var(--color-success);
   color: var(--color-success-content);
@@ -322,7 +231,7 @@ body {
   }
 
   &:focus-visible {
-    border-color: color-mix(in hsl, var(--color-success), black 40%);
+    outline: 2px solid var(--color-success);
   }
 
   &.btn-outline {
@@ -333,12 +242,17 @@ body {
       border-color: color-mix(in hsl, var(--color-success), transparent 50%);
     }
     &:focus-visible {
-      border-color: color-mix(in hsl, var(--color-success), black 40%);
+      background-color: var(--color-success);
+      color: var(--color-success-content);
+
+      &::before {
+        border-color: hsla(0, 0%, 100%, 0.5);
+      }
     }
   }
 }
 
-.btn-warning {
+:where(.btn-warning) {
   border-color: color-mix(in hsl, var(--color-warning), black 15%);
   background-color: var(--color-warning);
   color: var(--color-warning-content);
@@ -348,7 +262,7 @@ body {
   }
 
   &:focus-visible {
-    border-color: color-mix(in hsl, var(--color-warning), black 40%);
+    outline: 2px solid var(--color-warning);
   }
 
   &.btn-outline {
@@ -359,12 +273,17 @@ body {
       border-color: color-mix(in hsl, var(--color-warning), transparent 50%);
     }
     &:focus-visible {
-      border-color: color-mix(in hsl, var(--color-warning), black 40%);
+      background-color: var(--color-warning);
+      color: var(--color-warning-content);
+
+      &::before {
+        border-color: hsla(0, 0%, 100%, 0.4);
+      }
     }
   }
 }
 
-.btn-error {
+:where(.btn-error) {
   border-color: color-mix(in hsl, var(--color-error), black 15%);
   background-color: var(--color-error);
   color: var(--color-error-content);
@@ -374,7 +293,7 @@ body {
   }
 
   &:focus-visible {
-    border-color: color-mix(in hsl, var(--color-error), black 40%);
+    outline: 2px solid var(--color-error);
   }
 
   &.btn-outline {
@@ -385,16 +304,25 @@ body {
       border-color: color-mix(in hsl, var(--color-error), transparent 50%);
     }
     &:focus-visible {
-      border-color: color-mix(in hsl, var(--color-error), black 40%);
+      background-color: var(--color-error);
+      color: var(--color-error-content);
+
+      &::before {
+        border-color: hsla(0, 0%, 100%, 0.3);
+      }
     }
   }
 }
 
-.btn-ghost {
+:where(.btn-ghost) {
   box-shadow: none;
 
   &::before {
     border-color: hsla(0, 0%, 100%, 0.3);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-neutral);
   }
 
   &:hover {
@@ -402,40 +330,17 @@ body {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  @apply text-white;
-}
+:where(.kbd) {
+  --box-shadow: 0px 0px 0px 2px var(--color-base-100),
+    0px 4px 0px 2px var(--color-base-100);
 
-p {
-  @apply text-sm;
-}
+  @apply mx-1;
+  display: inline;
+  background-color: var(--color-neutral);
+  box-shadow: var(--box-shadow);
 
-h6 {
-  @apply text-xs;
-}
-
-h5 {
-  @apply text-sm;
-}
-
-h4 {
-  @apply text-lg;
-}
-
-h3 {
-  @apply text-2xl;
-}
-
-h2 {
-  @apply text-4xl;
-}
-
-h1 {
-  @apply text-6xl;
+  &::before {
+    border-color: hsla(0, 0%, 100%, 0.3);
+    @apply top-0.5 left-0.5;
+  }
 }
