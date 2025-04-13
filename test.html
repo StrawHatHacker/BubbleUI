@@ -11,6 +11,24 @@
 </head>
 
 <body>
+    <h2 class="pl-4 pt-6 pb-2">Toggle</h2>
+    <div class="w-full flex flex-wrap items-center  gap-2 px-4 mb-2">
+        <input type="checkbox" class="toggle" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-primary" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-secondary" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-accent" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-info" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-success" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-warning" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-error" aria-label="toggle example">
+    </div>
+    <div class="w-full flex flex-wrap items-center  gap-2 px-4">
+        <input type="checkbox" class="toggle toggle-sm" aria-label="toggle example">
+        <input type="checkbox" class="toggle" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-lg" aria-label="toggle example">
+        <input type="checkbox" class="toggle toggle-xl" aria-label="toggle example">
+    </div>
+
     <h2 class="pl-4 pt-6 pb-2">Filled</h2>
     <div class="w-full flex flex-wrap gap-2 px-4">
         <button class="btn btn-neutral">NEUTRAL</button>
@@ -21,6 +39,15 @@
         <button class="btn btn-success">SUCCESS</button>
         <button class="btn btn-warning">WARNING</button>
         <button class="btn btn-error">ERROR</button>
+    </div>
+
+    <h2 class="pl-4 pt-6 pb-2">Sizes</h2>
+    <div class="w-full flex flex-wrap gap-2 px-4">
+        <button class="btn btn-sm btn-primary">Sausage</button>
+        <button class="btn btn-primary">Sausage</button>
+        <button class="btn btn-lg btn-primary">Sausage</button>
+        <button class="btn btn-xl btn-primary">Sausage</button>
+        <button class="btn btn-2xl btn-primary">Sausage</button>
     </div>
 
     <h2 class="pl-4 pt-6 pb-2">Filled disabled</h2>
@@ -62,14 +89,13 @@
     <h2 class="pl-4 pt-6 pb-2">Other</h2>
     <div class="w-full flex flex-wrap gap-2 p-4">
         <button class="btn btn-ghost">GHOST</button>
-        <button disabled class="btn btn-ghost disabled">GHOST DISABLED</button>
+        <button disabled class="btn btn-ghost">GHOST DISABLED</button>
+        <button class="btn btn-link">Link</button>
     </div>
     <div class="p-4">
         <p class="inline">Click </p>
-        <div class="btn kbd text-xs">ctrl</div>
-        <div class="btn kbd text-xl">ctrl</div>
+        <div class="btn kbd text-xs">Ctrl</div>
         <p class="inline">and do somethin!</p>
-
     </div>
 
     <h2 class="pl-4 pt-6 pb-2">With Icons</h2>
@@ -85,6 +111,20 @@
         <button disabled class="btn btn-square btn-outline btn-primary disabled">
             <i class="fa-solid fa-plus"></i>
         </button>
+    </div>
+    <div class="w-full flex flex-wrap gap-2 px-4">
+        <button class="btn btn-square btn-sm btn-primary"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-square btn-primary"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-square btn-lg btn-primary"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-square btn-xl btn-primary"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-square btn-2xl btn-primary"><i class="fa-solid fa-trash"></i></button>
+    </div>
+    <div class="w-full flex flex-wrap gap-2 px-4">
+        <button class="btn btn-circle btn-sm btn-primary"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-circle btn-primary"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-circle btn-lg btn-primary"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-circle btn-xl btn-primary"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn btn-circle btn-2xl btn-primary"><i class="fa-solid fa-trash"></i></button>
     </div>
 </body>
 

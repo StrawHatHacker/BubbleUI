@@ -1,5 +1,6 @@
 @import url(https://fonts.bunny.net/css?family=basic:400);
 @import "./buttons.css";
+@import "./toggle.css";
 
 @import "tailwindcss";
 
@@ -11,11 +12,11 @@
 
   /* Main colors */
   --color-neutral: hsl(0, 0%, 0%);
-  --color-neutral-content: hsl(0, 0%, 100%);
+  --color-neutral-content: hsl(0, 0%, 90%);
   --color-primary: hsl(217, 78%, 40%);
-  --color-primary-content: hsl(0, 0%, 100%);
+  --color-primary-content: color-mix(in hsl, var(--color-primary), white 90%);
   --color-secondary: hsl(274, 78%, 40%);
-  --color-secondary-content: hsl(0, 0%, 100%);
+  --color-secondary-content:  color-mix(in hsl, var(--color-secondary), white 90%);
   --color-accent: hsl(160, 80%, 46%);
   --color-accent-content: color-mix(in hsl, var(--color-accent), black 50%);
   --color-info: hsl(180, 77%, 47%);
@@ -142,5 +143,5 @@ body {
 }
 
 :where(h1) {
-  @apply text-6xl;
+  @apply text-5xl;
 }
