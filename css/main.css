@@ -1,6 +1,7 @@
 @import url(https://fonts.bunny.net/css?family=basic:400);
 @import "./buttons.css";
 @import "./toggle.css";
+@import "./navbar.css";
 
 @import "tailwindcss";
 
@@ -36,6 +37,7 @@
 body {
   background-color: var(--color-base-300);
   font-family: "Basic", sans-serif;
+  color: var(--color-neutral-content);
 }
 
 .bg-base-100 {

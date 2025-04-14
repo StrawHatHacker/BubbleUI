@@ -1,6 +1,6 @@
 :where(.toggle) {
-  --width: 3rem;
-  --height: 1.5rem;
+  --width: 4rem;
+  --height: 2rem;
   --color-toggle-bg: var(--color-base-200);
   --color-toggle-bg-checked: var(--color-neutral);
   --color-border: color-mix(in hsl, var(--color-neutral-content), black 40%);
@@ -50,8 +50,8 @@
 }
 
 .toggle-sm {
-  --width: 2rem;
-  --height: 1rem;
+  --width: 3rem;
+  --height: 1.5rem;
   @apply rounded-md;
   &::after {
     --toggle-spacing: 3px;
@@ -60,18 +60,10 @@
 }
 
 .toggle-lg {
-  --width: 4rem;
-  --height: 2rem;
-  &::after {
-    --toggle-spacing: 5px;
-  }
-}
-
-.toggle-xl {
   --width: 5rem;
   --height: 2.5rem;
   &::after {
-    --toggle-spacing: 6px;
+    --toggle-spacing: 5px;
   }
 }
 
