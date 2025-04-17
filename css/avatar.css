@@ -1,0 +1,122 @@
+:where(.avatar) {
+  @apply aspect-square bg-cover relative overflow-clip w-[4.8rem]
+   rounded-lg shadow shadow-black/40;
+  border: 4px solid var(--color-base-100);
+
+  &::before {
+    content: "";
+    left: 0.25rem;
+    top: 0.25rem;
+    border-color: color-mix(in oklab, white, transparent 60%);
+    @apply absolute h-1/3 w-1/3 rounded-tl-xl border-t-3 border-l-3;
+  }
+
+  &.avatar-rounded::before {
+    left: 0.35rem;
+    top: 0.35rem;
+    @apply rounded-tl-full;
+  }
+}
+
+:where(.avatar-xs) {
+  border-width: 2px;
+  @apply w-[2.1rem] rounded;
+}
+
+:where(.avatar-sm) {
+  border-width: 3px;
+  @apply w-[3rem] rounded-lg;
+
+  &::before {
+    left: 0.125rem;
+    top: 0.125rem;
+    @apply border-t-2 border-l-2;
+  }
+
+  &.avatar-rounded::before {
+    left: 0.3rem;
+    top: 0.3rem;
+  }
+}
+
+:where(.avatar-lg) {
+  @apply w-[7.5rem] rounded-xl;
+
+  &::before {
+    left: 0.3rem;
+    top: 0.3rem;
+    @apply rounded-tl-2xl;
+  }
+
+  &.avatar-rounded::before {
+    left: 0.5rem;
+    top: 0.5rem;
+  }
+}
+
+:where(.avatar-xl) {
+  @apply w-[11.1rem] rounded-2xl;
+
+  &::before {
+    left: 0.4rem;
+    top: 0.4rem;
+    @apply rounded-tl-3xl border-t-4 border-l-4;
+  }
+
+  &.avatar-rounded::before {
+    left: 0.7rem;
+    top: 0.7rem;
+  }
+}
+
+:where(.avatar-rounded) {
+  @apply rounded-full;
+}
+
+:where(.avatar-no-glow) {
+  &::before {
+    display: none;
+  }
+}
+
+.avatar-group {
+  @apply flex items-center;
+}
+
+.avatar-group > :where(.avatar) {
+  margin-left: -10%;
+}
+
+.avatar-group > :where(.avatar):first-child {
+  margin-left: 0;
+}
+
+.avatar img {
+  @apply w-full h-full object-cover;
+}
+
+.avatar-glass {
+  @apply relative overflow-hidden cursor-pointer;
+}
+
+.avatar-glass::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.6s ease;
+}
+
+.avatar-glass:hover::after {
+  left: 100%;
+}

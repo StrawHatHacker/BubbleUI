@@ -2,32 +2,35 @@
 @import "./buttons.css";
 @import "./toggle.css";
 @import "./navbar.css";
+@import "./avatar.css";
 
 @import "tailwindcss";
 
-:root {
+:root,
+html[data-theme="dark"] {
   /* Colors for backgrounds */
-  --color-base-100: hsl(0, 0%, 21%);
-  --color-base-200: hsl(0, 0%, 17%);
-  --color-base-300: hsl(0, 0%, 13%);
+  --color-base-400: oklch(0.35 0 0);
+  --color-base-300: oklch(0.30 0 0);
+  --color-base-200: oklch(0.25 0 0);
+  --color-base-100: oklch(0.20 0 0);
 
   /* Main colors */
-  --color-neutral: hsl(0, 0%, 0%);
-  --color-neutral-content: hsl(0, 0%, 90%);
-  --color-primary: hsl(217, 78%, 40%);
-  --color-primary-content: color-mix(in hsl, var(--color-primary), white 90%);
-  --color-secondary: hsl(274, 78%, 40%);
-  --color-secondary-content:  color-mix(in hsl, var(--color-secondary), white 90%);
-  --color-accent: hsl(160, 80%, 46%);
-  --color-accent-content: color-mix(in hsl, var(--color-accent), black 50%);
-  --color-info: hsl(180, 77%, 47%);
-  --color-info-content: color-mix(in hsl, var(--color-info), black 50%);
-  --color-success: hsl(129, 71%, 56%);
-  --color-success-content: color-mix(in hsl, var(--color-success), black 54%);
-  --color-warning: hsl(35, 100%, 58%);
-  --color-warning-content: color-mix(in hsl, var(--color-warning), black 60%);
-  --color-error: hsl(355, 70%, 47%);
-  --color-error-content: color-mix(in hsl, var(--color-error), black 65%);
+  --color-neutral: oklch(0% 0 0);
+  --color-neutral-content: oklch(0.90 0 0);
+  --color-primary: oklch(0.51 0.1957 270.34);
+  --color-primary-content: oklch(0.90 0 0);
+  --color-secondary: oklch(0.52 0.2389 311.53);
+  --color-secondary-content:  oklch(0.90 0 0);
+  --color-accent: oklch(0.79 0.1621 165.04);
+  --color-accent-content: color-mix(in oklab, var(--color-accent), black 50%);
+  --color-info: oklch(0.79 0.1246 194.73);
+  --color-info-content: color-mix(in oklab, var(--color-info), black 50%);
+  --color-success: oklch(0.79 0.2318 146.62);
+  --color-success-content: color-mix(in oklab, var(--color-success), black 54%);
+  --color-warning: oklch(0.79 0.1591 72.06);
+  --color-warning-content: color-mix(in oklab, var(--color-warning), black 60%);
+  --color-error: oklch(0.54 0.1987 22.8);
+  --color-error-content: color-mix(in oklab, var(--color-error), black 65%);
 
   --transition-speed: 0.25s;
   --transition-speed-fast: 0.125s;
@@ -35,21 +38,21 @@
 }
 
 body {
-  background-color: var(--color-base-300);
+  background-color: var(--color-base-200);
   font-family: "Basic", sans-serif;
   color: var(--color-neutral-content);
 }
 
 .bg-base-100 {
-  background-color: var(--color-base-100);
+  background-color: var(--color-base-400);
 }
 
 .bg-base-200 {
-  background-color: var(--color-base-200);
+  background-color: var(--color-base-300);
 }
 
 .bg-base-300 {
-  background-color: var(--color-base-300);
+  background-color: var(--color-base-200);
 }
 
 .color-neutral {

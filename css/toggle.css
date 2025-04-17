@@ -1,18 +1,27 @@
 :where(.toggle) {
   --width: 4rem;
   --height: 2rem;
-  --color-toggle-bg: var(--color-base-200);
+  --color-toggle-bg: color-mix(in oklch,var(--color-neutral), white 30%);
   --color-toggle-bg-checked: var(--color-neutral);
-  --color-border: color-mix(in hsl, var(--color-neutral-content), black 40%);
-  --color-border-checked: var(--color-neutral-content);
+  --color-border: color-mix(in oklch, var(--color-neutral-content), black 50%);
+  --color-border-checked: var(--color-neutral);
 
-  @apply appearance-none inline-block relative rounded-lg cursor-pointer m-0 shadow-sm shadow-black/40;
+  @apply appearance-none inline-block relative rounded-lg cursor-pointer m-0 shadow-sm shadow-black/40 overflow-clip;
   width: var(--width);
   height: var(--height);
   background-color: var(--color-toggle-bg);
   transition: background-color var(--transition-speed) ease;
   border: 3px solid var(--color-border);
   box-sizing: content-box !important;
+
+  &::before {
+    content: "";
+    transition: opacity var(--transition-speed) ease-out;
+    opacity: 0;
+    top: 0.175rem;
+    left: 0.175rem; 
+    @apply absolute h-1/3 w-1/3 rounded-tl-xl border-t-3 border-l-3;
+  }
 }
 
 /* The inner circle */
@@ -32,8 +41,12 @@
 
 /* When checked */
 .toggle:checked {
-  background-color: var(--color-toggle-bg-checked); /* 'On' background color */
-  border: 3px solid var(--color-border-checked);
+  background-color: var(--color-toggle-bg-checked);
+  border-color: var(--color-border-checked);
+
+  &::before {
+    opacity: 0.5;
+  }
 }
 
 /* Move the ::after pseudo-element (circle) when checked */
@@ -68,7 +81,7 @@
 }
 
 .toggle-primary {
-  --color-toggle-bg: color-mix(in hsl, var(--color-primary), transparent 30%);
+  --color-toggle-bg: color-mix(in oklab, var(--color-primary), transparent 30%);
   --color-toggle-bg-checked: var(--color-primary);
   --color-border: var(--color-primary);
   --color-border-checked: var(--color-primary);
@@ -79,7 +92,7 @@
 }
 
 .toggle-secondary {
-  --color-toggle-bg: color-mix(in hsl, var(--color-secondary), transparent 30%);
+  --color-toggle-bg: color-mix(in oklab, var(--color-secondary), transparent 30%);
   --color-toggle-bg-checked: var(--color-secondary);
   --color-border: var(--color-secondary);
   --color-border-checked: var(--color-secondary);
@@ -90,7 +103,7 @@
 }
 
 .toggle-accent {
-  --color-toggle-bg: color-mix(in hsl, var(--color-accent), transparent 30%);
+  --color-toggle-bg: color-mix(in oklab, var(--color-accent), transparent 30%);
   --color-toggle-bg-checked: var(--color-accent);
   --color-border: var(--color-accent);
   --color-border-checked: var(--color-accent);
@@ -101,7 +114,7 @@
 }
 
 .toggle-info {
-  --color-toggle-bg: color-mix(in hsl, var(--color-info), transparent 30%);
+  --color-toggle-bg: color-mix(in oklab, var(--color-info), transparent 30%);
   --color-toggle-bg-checked: var(--color-info);
   --color-border: var(--color-info);
   --color-border-checked: var(--color-info);
@@ -112,7 +125,7 @@
 }
 
 .toggle-success {
-  --color-toggle-bg: color-mix(in hsl, var(--color-success), transparent 30%);
+  --color-toggle-bg: color-mix(in oklab, var(--color-success), transparent 30%);
   --color-toggle-bg-checked: var(--color-success);
   --color-border: var(--color-success);
   --color-border-checked: var(--color-success);
@@ -123,7 +136,7 @@
 }
 
 .toggle-warning {
-  --color-toggle-bg: color-mix(in hsl, var(--color-warning), transparent 30%);
+  --color-toggle-bg: color-mix(in oklab, var(--color-warning), transparent 30%);
   --color-toggle-bg-checked: var(--color-warning);
   --color-border: var(--color-warning);
   --color-border-checked: var(--color-warning);
@@ -134,7 +147,7 @@
 }
 
 .toggle-error {
-  --color-toggle-bg: color-mix(in hsl, var(--color-error), transparent 30%);
+  --color-toggle-bg: color-mix(in oklab, var(--color-error), transparent 30%);
   --color-toggle-bg-checked: var(--color-error);
   --color-border: var(--color-error);
   --color-border-checked: var(--color-error);
