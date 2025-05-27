@@ -11,7 +11,24 @@
 </head>
 
 <body data-theme="dark">
-    <h1 class="pl-4 pt-6 pb-2">Images</h1>
+    <h2 class="pl-4 pt-6 pb-2">Dropdown menu</h2>
+    <div class="w-full flex flex-wrap items-center gap-4 px-4 mb-2">
+        <ul class="menu bg-base-100 text-xl">
+            <li><button>Profile</button></li>
+            <li><button>Settings</button></li>
+            <li class="color-error"><button>Logout</button></li>
+        </ul>
+
+        <button class="btn btn-primary" popovertarget="popover-1" style="anchor-name:--anchor-1">
+            Open menu
+        </button>
+        <ul class="dropdown menu w-fit bg-base-100" popover id="popover-1" style="position-anchor:--anchor-1">
+            <li><button>Profile</button></li>
+            <li><button>Settings</button></li>
+            <li class="color-error"><button>Logout</button></li>
+        </ul>
+    </div>
+    <h2 class="pl-4 pt-6 pb-2">Images</h2>
     <div class="w-full flex flex-wrap items-center gap-4 px-4 mb-2">
         <div class="avatar avatar-xs avatar-no-glow">
             <img src="./assets/profileImage.jpg" alt="profile image">
@@ -46,7 +63,7 @@
             <img src="./assets/profileImage.jpg" alt="profile image">
         </div>
     </div>
-    
+
     <div class="w-full flex flex-wrap items-center gap-4 px-4 mb-2">
         <div class="avatar-group">
             <div class="avatar avatar-rounded">

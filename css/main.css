@@ -3,6 +3,7 @@
 @import "./toggle.css";
 @import "./navbar.css";
 @import "./avatar.css";
+@import "./dropdown-menu.css";
 
 @import "tailwindcss";
 
@@ -44,15 +45,19 @@ body {
 }
 
 .bg-base-100 {
-  background-color: var(--color-base-400);
+  background-color: var(--color-base-100);
 }
 
 .bg-base-200 {
-  background-color: var(--color-base-300);
+  background-color: var(--color-base-200);
 }
 
 .bg-base-300 {
-  background-color: var(--color-base-200);
+  background-color: var(--color-base-300);
+}
+
+.bg-base-400 {
+  background-color: var(--color-base-400);
 }
 
 .color-neutral {
@@ -149,4 +154,8 @@ body {
 
 :where(h1) {
   @apply text-5xl;
+}
+
+button{
+  @apply cursor-pointer;
 }
