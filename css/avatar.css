@@ -120,3 +120,12 @@
 .avatar-glass:hover::after {
   left: 100%;
 }
+
+:where(.avatar-status) {
+  @apply relative;
+  &::after {
+    content: "";
+    @apply absolute z-50 bottom-[8%] right-[8%] w-[15%]
+     aspect-square rounded-full;
+  }
+}
