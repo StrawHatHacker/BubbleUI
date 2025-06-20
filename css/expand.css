@@ -1,0 +1,71 @@
+.status {
+  @apply rounded-full aspect-square w-[0.75rem];
+  --glow-size: 0.5rem;
+}
+
+.status-primary {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 var(--glow-size) 0 var(--color-primary),
+    inset 0px -2px 2px 0 color-mix(in lab, var(--color-primary) 70%, black);
+}
+
+.status-secondary {
+  background-color: var(--color-secondary);
+  box-shadow: 0 0 var(--glow-size) 0 var(--color-secondary),
+    inset 0px -2px 2px 0 color-mix(in lab, var(--color-secondary) 70%, black);
+}
+
+.status-accent {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 var(--glow-size) 0 var(--color-accent),
+    inset 0px -2px 2px 0 color-mix(in lab, var(--color-accent) 70%, black);
+}
+
+.status-info {
+  background-color: var(--color-info);
+  box-shadow: 0 0 var(--glow-size) 0 var(--color-info),
+    inset 0px -2px 2px 0 color-mix(in lab, var(--color-info) 70%, black);
+}
+
+.status-success {
+  background-color: var(--color-success);
+  box-shadow: 0 0 var(--glow-size) 0 var(--color-success),
+    inset 0px -2px 2px 0 color-mix(in lab, var(--color-success) 70%, black);
+}
+
+.status-warning {
+  background-color: var(--color-warning);
+  box-shadow: 0 0 var(--glow-size) 0 var(--color-warning),
+    inset 0px -2px 2px 0 color-mix(in lab, var(--color-warning) 70%, black);
+}
+
+.status-error {
+  background-color: var(--color-error);
+  box-shadow: 0 0 var(--glow-size) 0 var(--color-error),
+    inset 0px -2px 2px 0 color-mix(in lab, var(--color-error) 70%, black);
+}
+
+.status-neutral {
+  background-color: var(--color-neutral);
+  box-shadow: 0 0 var(--glow-size) 0 var(--color-neutral);
+}
+
+.status-xs {
+  @apply w-[0.75rem];
+}
+
+.status-sm {
+  @apply w-[1rem];
+}
+
+.status-md {
+  @apply w-[1.25rem];
+}
+
+.status-lg {
+  @apply w-[1.5rem];
+}
+
+.status-xl {
+  @apply w-[1.75rem];
+}

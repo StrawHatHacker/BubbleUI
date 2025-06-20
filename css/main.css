@@ -4,6 +4,7 @@
 @import "./navbar.css";
 @import "./avatar.css";
 @import "./dropdown-menu.css";
+@import "./expand.css";
 
 @import "tailwindcss";
 
@@ -11,18 +12,18 @@
 html[data-theme="dark"] {
   /* Colors for backgrounds */
   --color-base-400: oklch(0.35 0 0);
-  --color-base-300: oklch(0.30 0 0);
+  --color-base-300: oklch(0.3 0 0);
   --color-base-200: oklch(0.25 0 0);
-  --color-base-100: oklch(0.20 0 0);
+  --color-base-100: oklch(0.2 0 0);
 
   /* Main colors */
   --color-neutral: oklch(0% 0 0);
-  --color-neutral-content: oklch(0.90 0 0);
+  --color-neutral-content: oklch(0.9 0 0);
   --color-primary: oklch(0.51 0.1957 270.34);
-  --color-primary-content: oklch(0.90 0 0);
+  --color-primary-content: oklch(0.9 0 0);
   --color-secondary: oklch(0.52 0.2389 311.53);
-  --color-secondary-content:  oklch(0.90 0 0);
-  --color-accent: oklch(0.79 0.1621 165.04);
+  --color-secondary-content: oklch(0.9 0 0);
+  --color-accent: oklch(76.459% 0.15619 165.333);
   --color-accent-content: color-mix(in oklab, var(--color-accent), black 50%);
   --color-info: oklch(0.79 0.1246 194.73);
   --color-info-content: color-mix(in oklab, var(--color-info), black 50%);
@@ -58,6 +59,38 @@ body {
 
 .bg-base-400 {
   background-color: var(--color-base-400);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.bg-info {
+  background-color: var(--color-info);
+}
+
+.bg-success {
+  background-color: var(--color-success);
+}
+
+.bg-warning {
+  background-color: var(--color-warning);
+}
+
+.bg-error {
+  background-color: var(--color-error);
+}
+
+.bg-neutral {
+  background-color: var(--color-neutral);
 }
 
 .color-neutral {
@@ -156,6 +189,6 @@ body {
   @apply text-5xl;
 }
 
-button{
+button {
   @apply cursor-pointer;
 }
