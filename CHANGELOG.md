@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 5.0.43 (2025-05-30)
+
+
+### Bug Fixes
+
+* badge-outline, badge-dash, badge-soft can be used with tailwind responsive variants. closes: [#3643](https://github.com/saadeghi/daisyui/issues/3643) ([2470fe2](https://github.com/saadeghi/daisyui/commit/2470fe20f9d69976d6ce7c98fa883909c6202e59))
+
+## 5.0.42 (2025-05-29)
+
+
+### Bug Fixes
+
+* checkbox in menu should not be grid. closes: [#3922](https://github.com/saadeghi/daisyui/issues/3922) ([7f1ca83](https://github.com/saadeghi/daisyui/commit/7f1ca83e2545967dc1270c1db2ddb6f55830266f))
+
+## 5.0.41 (2025-05-29)
+
+## 5.0.40 (2025-05-28)
+
+
+### Bug Fixes
+
+* Chat bubble mask not working with tailwind prefixes. closes: [#3847](https://github.com/saadeghi/daisyui/issues/3847) ([c7856f2](https://github.com/saadeghi/daisyui/commit/c7856f267bc8653b04abf0250ba77f9523c85872))
+
+## 5.0.39 (2025-05-28)
+
+
+### Bug Fixes
+
+* calendar - react daypicker range bg color. closes: [#3918](https://github.com/saadeghi/daisyui/issues/3918) ([d9df966](https://github.com/saadeghi/daisyui/commit/d9df966a93f6164774c5a7043b97eeddc799f09d))
+
 ## 5.0.38 (2025-05-26)
 
 
